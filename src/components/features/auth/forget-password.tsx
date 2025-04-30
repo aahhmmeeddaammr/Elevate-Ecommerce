@@ -1,4 +1,4 @@
-import Button from "@/components/common/Button";
+import {Button} from "@/components/ui/button";
 import FormInput from "@/components/common/FormInput";
 import { ForgetPasswordAction } from "@/lib/actions/ForgetPassword.action";
 import useModal from "@/hooks/useModal";
@@ -50,7 +50,7 @@ const ForgetPassword = () => {
         type="email"
       />
       {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-      <Button type="submit" label="Recover Password" />
+      <Button type="submit" className="rounded-4xl">Recover Password</Button>
     </form>
   );
 };
