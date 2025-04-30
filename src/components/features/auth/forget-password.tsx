@@ -25,11 +25,10 @@ const ForgetPassword = () => {
 
   const onSubmit = async (data: ForgetPasswordInputs) => {
     try {
-      const res = await ForgetPasswordAction(data.email);
+      await ForgetPasswordAction(data.email);
       localStorage.setItem("email", data.email);
       toast.success("Email send to your Email");
       setCurrentModalName("VerifyCodeModal");
-      console.log(await res.json());
     } catch {
       toast.error("Invalid email or phone number");
       setError("Invalid email or phone number");

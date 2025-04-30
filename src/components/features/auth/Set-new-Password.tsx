@@ -26,12 +26,11 @@ const SetNewPassword = () => {
     console.log("Form Data:", data);
     // Handle form submission logic here
     try {
-      const res = await SetNewPasswordAction(
+      await SetNewPasswordAction(
         data.newPassword,
         localStorage.getItem("email") || ""
       );
       setCurrentModalName("LoginModal");
-      console.log(await res.json());
     } catch (error) {
       console.error("Error in SetNewPasswordAction:", error);
       setError("invalid password or email");

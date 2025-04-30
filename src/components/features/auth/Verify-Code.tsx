@@ -26,8 +26,7 @@ const VerifyCode = () => {
   const onSubmit = async (data: VerifyCodeInputs) => {
     console.log("Form Data:", data);
     try {
-      const res = await VerifyCodeAction(data.resetCode);
-      const dataB = await res.json();
+      const dataB = await VerifyCodeAction(data.resetCode);
       console.log(dataB);
       if (dataB.error) {
         setError(dataB.error);

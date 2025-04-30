@@ -44,8 +44,8 @@ const Register: React.FC = () => {
     try {
       const response: RegisterResponse = await RegisterAction(data);
       console.log(response);
-
-      if (!(response.message == "success")) {
+      
+      if (!(response.message =="success")) {
         throw new Error(response.error || "Failed to register");
       }
 
