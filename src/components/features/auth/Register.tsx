@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import { z } from "zod";
 import RadioGroup from "@/components/common/RadioGroup";
 
-type RegisterInputs = z.infer<typeof RegisterSchema>;
+export type RegisterInputs = z.infer<typeof RegisterSchema>;
 
 interface RegisterResponse {
   success: boolean;
@@ -42,11 +42,11 @@ const Register: React.FC = () => {
     setSubmissionError(null);
 
     try {
-      const response = await RegisterAction(data);
-      const result: RegisterResponse = await response.json();
+      const response: RegisterResponse = await RegisterAction(data);
+      console.log(response);
 
-      if (!result.success) {
-        throw new Error(result.error || "Failed to register");
+      if (!(response.message == "success")) {
+        throw new Error(response.error || "Failed to register");
       }
 
       toast.success("Account created successfully");
